@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+
+development:
+  <<: *default
+  username: root
+  database: hidamarisou_development
+
+test:
+  <<: *default
+  username: root
+  database: hidamarisou_test
+
+production:
+  <<: *default
+  database: hidamarisou
+  username: hidamarisou
+  password: <%= ENV['HIDAMARISOU_DATABASE_PASSWORD'] %>
